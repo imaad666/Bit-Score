@@ -1,0 +1,33 @@
+{
+  "name": "bitscore",
+  "version": "1.0.0",
+  "description": "A Web3 project to evaluate the credibility and trust factor of cryptocurrencies using AI and RAG.",
+  "main": "src/index.tsx",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "keywords": [
+    "web3",
+    "cryptocurrency",
+    "AI",
+    "RAG",
+    "dashboard"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "web3": "^1.6.1",
+    "axios": "^0.21.1"
+  },
+  "devDependencies": {
+    "typescript": "^4.1.2",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0"
+  }
+}
