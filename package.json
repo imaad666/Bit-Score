@@ -9,6 +9,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "proxy": "http://localhost:8080",
   "keywords": [
     "web3",
     "cryptocurrency",
@@ -21,7 +22,8 @@
   "dependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-scripts": "4.0.3",
+    "react-scripts": "5.0.1",
+    "ethers": "^5.7.2",
     "web3": "^1.6.1",
     "axios": "^0.21.1"
   },
@@ -29,5 +31,17 @@
     "typescript": "^4.1.2",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
