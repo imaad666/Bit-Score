@@ -1,9 +1,17 @@
 import React, { useState } from 'react';
 import { fetchCoinData } from '../utils/ragModel';
 
+type CoinSearchData = {
+    name: string;
+    volumeHolder: string;
+    news: string;
+    parentOrg: string;
+    suspiciousTransactions: string;
+} | null;
+
 const CoinSearch: React.FC = () => {
     const [coinName, setCoinName] = useState('');
-    const [coinData, setCoinData] = useState(null);
+    const [coinData, setCoinData] = useState<CoinSearchData>(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
 

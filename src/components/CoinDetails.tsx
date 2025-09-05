@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { fetchCoinDetails } from '../utils/ragModel';
-import { CoinDetailsProps } from '../types';
+
+type CoinDetailsProps = { coinId: string };
 
 const CoinDetails: React.FC<CoinDetailsProps> = ({ coinId }) => {
     const [coinData, setCoinData] = useState<any>(null);

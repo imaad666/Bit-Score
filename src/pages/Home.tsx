@@ -1,17 +1,17 @@
 import React from 'react';
-import Dashboard from '../components/Dashboard';
-import CoinSearch from '../components/CoinSearch';
 import TrendingCoins from '../components/TrendingCoins';
-import WalletConnect from '../components/WalletConnect';
 
 const Home: React.FC = () => {
     return (
-        <div className="home-container">
-            <h1>Welcome to BitScore</h1>
-            <WalletConnect />
-            <CoinSearch />
-            <TrendingCoins />
-            <Dashboard />
+        <div className="page">
+            <header className="header">
+                <div className="brand">BitScore</div>
+                <div className="tagline">crypto insights integrated with AI</div>
+            </header>
+            <main className="content">
+                <h1 className="section-title">Trending Coins</h1>
+                <TrendingCoins />
+            </main>
         </div>
     );
 };

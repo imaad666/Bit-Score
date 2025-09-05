@@ -27,6 +27,8 @@ export const fetchTrendingCoins = async () => {
             symbol: coin.symbol,
             marketCap: coin.market_cap,
             price: coin.current_price,
+            image: coin.image,
+            priceChange24h: coin.price_change_percentage_24h,
         }));
     } catch (error) {
         console.error('Error fetching trending coins:', error);
@@ -47,10 +49,17 @@ export const fetchCoinDetails = async (coinId: string) => {
         return {
             name: data.name,
             price: data.market_data?.current_price?.usd ?? null,
+            marketCap: data.market_data?.market_cap?.usd ?? null,
+            volume24h: data.market_data?.total_volume?.usd ?? null,
+            circulatingSupply: data.market_data?.circulating_supply ?? null,
+            totalSupply: data.market_data?.total_supply ?? null,
+            ath: data.market_data?.ath?.usd ?? null,
+            atl: data.market_data?.atl?.usd ?? null,
             news: [],
             highestVolumeHolder: 'N/A',
             socials,
             suspiciousTransactions: [],
+            image: data.image?.large || data.image?.small || data.image?.thumb,
         };
     } catch (error) {
         console.error('Error fetching coin details:', error);
@@ -58,10 +67,10 @@ export const fetchCoinDetails = async (coinId: string) => {
     }
 };
 
-export const fetchCoinMarketData = async (coinId: string) => {
+export const fetchCoinMarketData = async (coinId: string, days: number | string = 7) => {
     try {
         const { data } = await axios.get(`${API_BASE_URL}/coins/${encodeURIComponent(coinId)}/market_chart`, {
-            params: { vs_currency: 'usd', days: 7 },
+            params: { vs_currency: 'usd', days },
         });
         return data;
     } catch (error) {

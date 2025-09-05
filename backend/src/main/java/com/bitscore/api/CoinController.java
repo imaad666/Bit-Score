@@ -4,6 +4,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
@@ -24,6 +25,13 @@ public class CoinController {
     @GetMapping("/coins/{id}")
     public ResponseEntity<?> coin(@PathVariable("id") String id) {
         String url = COINGECKO + "/coins/" + id + "?localization=false&tickers=false&market_data=true&community_data=true&developer_data=false&sparkline=false";
+        Object data = restTemplate.getForObject(url, Object.class);
+        return ResponseEntity.ok(data);
+    }
+
+    @GetMapping("/coins/{id}/market_chart")
+    public ResponseEntity<?> marketChart(@PathVariable("id") String id, @RequestParam(name = "days", defaultValue = "7") String days) {
+        String url = COINGECKO + "/coins/" + id + "/market_chart?vs_currency=usd&days=" + days;
         Object data = restTemplate.getForObject(url, Object.class);
         return ResponseEntity.ok(data);
     }
