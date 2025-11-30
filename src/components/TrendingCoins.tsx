@@ -25,11 +25,11 @@ const TrendingCoins: React.FC = () => {
     }, []);
 
     if (loading) {
-        return <div>Loading...</div>;
+        return <div className="loader" aria-label="Loading" />
     }
 
     if (error) {
-        return <div>{error}</div>;
+        return <div className="error-banner">{error}</div>;
     }
 
     return (

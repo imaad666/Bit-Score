@@ -30,8 +30,10 @@ const Login: React.FC = () => {
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
                         required
+                        className="input"
                     />
                 </div>
+                <div style={{ height: 12 }} />
                 <div>
                     <label htmlFor="password">Password:</label>
                     <input
@@ -40,10 +42,12 @@ const Login: React.FC = () => {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         required
+                        className="input"
                     />
                 </div>
                 {error && <p className="error">{error}</p>}
-                <button type="submit">Login</button>
+                <div style={{ height: 12 }} />
+                <button className="btn" type="submit">Login</button>
             </form>
         </div>
     );

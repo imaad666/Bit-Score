@@ -30,13 +30,16 @@ const CoinSearch: React.FC = () => {
 
     return (
         <div className="coin-search">
+            <h2>Search a coin</h2>
             <input
                 type="text"
                 value={coinName}
                 onChange={(e) => setCoinName(e.target.value)}
                 placeholder="Search for a coin..."
+                className="input"
             />
-            <button onClick={handleSearch} disabled={loading}>
+            <div style={{ height: 10 }} />
+            <button onClick={handleSearch} disabled={loading} className="btn">
                 {loading ? 'Searching...' : 'Search'}
             </button>
             {error && <p className="error">{error}</p>}
